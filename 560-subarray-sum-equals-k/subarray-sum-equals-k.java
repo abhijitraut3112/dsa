@@ -1,24 +1,29 @@
 class Solution {
     public int subarraySum(int[] nums, int k) {
+         HashMap<Integer, Integer> map = new HashMap<>();
 
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0,1);
-        int sum =0;
-        int count=0;
+        // Prefix sum 0 has occurred once
+        map.put(0, 1);
 
-        for(int i=0; i<nums.length; i++){
+        int prefixSum = 0;
+        int count = 0;
 
-            sum+=nums[i];
+        for (int num : nums) {
+            prefixSum += num;
 
-            if(map.containsKey(sum-k)){
-                count += map.get(sum-k);
+            // Check if there is a previous prefix sum
+            // such that currentPrefixSum - previousPrefixSum = k
+            int required = prefixSum - k;
 
+            if (map.containsKey(required)) {
+                count += map.get(required);
             }
 
-            map.put(sum,map.getOrDefault(sum,0)+1 );
-
+            // Store current prefix sum
+            map.put(prefixSum, map.getOrDefault(prefixSum, 0) + 1);
         }
+
+        return count;
         
-            return count;
     }
 }
