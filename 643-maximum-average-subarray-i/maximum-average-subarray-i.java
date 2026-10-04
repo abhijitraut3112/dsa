@@ -1,7 +1,7 @@
 class Solution {
     public double findMaxAverage(int[] nums, int k) {
 
-      int windowSum = 0;
+         int windowSum = 0;
 
         // First window
         for (int i = 0; i < k; i++) {
@@ -19,8 +19,6 @@ class Solution {
         }
 
         return (double) maxSum / k;
-    }
         
-
-    
+    }
 }
