@@ -1,6 +1,7 @@
 class Solution {
     public int longestConsecutive(int[] nums) {
-          Set<Integer> set = new HashSet<>();
+
+         Set<Integer> set = new HashSet<>();
 
         for (int num : nums) {
             set.add(num);
@@ -9,7 +10,6 @@ class Solution {
         int longest = 0;
 
         for (int num : set) {
-            // Only start counting from the beginning of a sequence
             if (!set.contains(num - 1)) {
                 int current = num;
                 int length = 1;
