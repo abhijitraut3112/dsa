@@ -18,7 +18,7 @@ class Solution {
                 end--;
             }
 
-            // Left half is sorted
+            // Left half sorted
             else if (nums[start] <= nums[mid]) {
 
                 if (target >= nums[start] && target < nums[mid]) {
@@ -28,7 +28,7 @@ class Solution {
                 }
             }
 
-            // Right half is sorted
+            // Right half  sorted
             else {
 
                 if (target > nums[mid] && target <= nums[end]) {
